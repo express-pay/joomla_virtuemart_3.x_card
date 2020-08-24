@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+	<name>VMPAYMENT_CARD_EXPRESSPAY</name>
+	<author>ООО «ТриИнком»</author>
+	<creationDate>May 2016</creationDate>
+	<authorUrl>https://express-pay.by/</authorUrl>
+	<version>2.3</version>
+	<description>VMPAYMENT_DESCRIPTION</description>
+	<files>
+		<filename plugin="card_expresspay">card_expresspay.php</filename>
+		<filename>index.html</filename>
+		<filename>card_expresspay.xml</filename>
+		<folder>assets</folder>
+		<folder>fields</folder>
+	</files>
+	<languages>
+		<language tag="ru-RU">ru-RU.plg_vmpayment_card_expresspay.ini</language>
+		<language tag="en-GB">en-GB.plg_vmpayment_card_expresspay.ini</language>
+	</languages>
+	<vmconfig>
+		<fields name="params">
+			<fieldset  name="basic" addfieldpath="/plugins/vmpayment/card_expresspay/fields">
+				<field type="getinfo" default=""/>
+				<field name="token" 			type="text" 				label="VMPAYMENT_TOKEN_LABEL" 				size="30" 	default=""  description="VMPAYMENT_TOKEN_DESC"  />
+				<field 							type="gethandlerurl" 		label="VMPAYMENT_HANDLER_URL_LABEL" 					default=""/>
+				<field name="sign_invoices" 	type="checkbox" 			label="VMPAYMENT_SIGN_INVOICES_LABEL" 					default="" 	description="VMPAYMENT_SIGN_INVOICES_DESC"  />
+				<field name="secret_key" 		type="text" 				label="VMPAYMENT_SECRET_KEY_LABEL" 			size="30"  	default="" 	description="VMPAYMENT_SECRET_KEY_DESC"  />
+				<field name="sign_notify" 		type="checkbox" 			label="VMPAYMENT_SIGN_NOTIFY_LABEL" 					default=""  description="VMPAYMENT_SIGN_NOTIFY_DESC"  />
+				<field name="secret_key_notify" type="text" 				label="VMPAYMENT_SECRET_KEY_NOTIFY_LABEL" 	size="30" 	default=""  description="VMPAYMENT_SECRET_KEY_NOTIFY_DESC"  />
+				<field name="test_mode"			type="checkbox" 			label="VMPAYMENT_TEST_MODE_LABEL" 						default="" />
+				<field name="url_api" 			type="text" 				label="VMPAYMENT_URL_API_LABEL" 			size="30"  	default="https://api.express-pay.by" />
+				<field name="url_sandbox_api" 	type="text" 				label="VMPAYMENT_SANDBOX_API_LABEL" 		size="30"  	default="https://sandbox-api.express-pay.by" />
+				<field name="message_success" 	type="getmessagesuccess" 	label="VMPAYMENT_MESSAGE_SUCCESS_LABEL" 				default="" />
+				<field name="message_fail" 		type="getmessagefail" 		label="VMPAYMENT_MESSAGE_FAIL_LABEL" 		size="1024" default="" />
+				<field name="info" 				type="getmessageinfo" 		label="VMPAYMENT_INFO_LABEL" 				size="1024" default="" />
+				
+
+				<field name="settings" 			type="note" 				label="VMPAYMENT_SETTINGS" />
+
+				<field name="status_pending" 	type="vmorderstate" 		label="VMPAYMENT_STATUS_PENDING" scope="com_virtuemart" default="P"  description="VMPAYMENT_STATUS_PENDING_EXPLAIN" />
+				<field name="status_success" 	type="vmorderstate" 		label="VMPAYMENT_STATUS_SUCCESS" scope="com_virtuemart" default="C"  description="VMPAYMENT_STATUS_SUCCESS_EXPLAIN" />
+				<field name="status_canceled" 	type="vmorderstate" 		label="VMPAYMENT_STATUS_FAILED"  scope="com_virtuemart" default="X"  description="VMPAYMENT_STATUS_FAILED_EXPLAIN" />
+
+				<field type="getcopyright" default=""/>
+			</fieldset>
+		</fields>
+	</vmconfig>
+</extension>
